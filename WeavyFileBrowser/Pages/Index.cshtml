@@ -1,0 +1,19 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<div class="cloud-buttons">
+    <button class="dropbox btn btn-primary">Dropbox</button>
+    <button class="box btn btn-primary">Box</button>
+    <button class="onedrive btn btn-primary">OneDrive</button>
+    <button class="google-drive btn btn-primary">Google Drive</button>
+    <button class="create-auth">Auth Google Docs</button>
+    <button class="create">Create Google Docs</button>
+    <button id="signout-button" style="display: none;">Sign Out</button>
+</div>
+
+
+@section Scripts{
+    <script async defer type="text/javascript" src="https://apis.google.com/js/api.js?" onload="this.onload = function () { };  weavyFilebrowser.google.onLoad('@(Request.Query["origin"])');" onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
+}
