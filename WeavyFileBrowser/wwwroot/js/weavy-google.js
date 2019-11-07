@@ -5,8 +5,8 @@ weavyFilebrowser.google = (function () {
     //--------------------------------------------------------------
     // Google api
     //--------------------------------------------------------------
-    var developerKey = 'AIzaSyCkFSttc_TxQ8P6sce6AqYUpGUJuCkjurA';
-    var clientId = '1006851984270-5ksidb1a9guafeit9ne69bsu7o6rudft.apps.googleusercontent.com';
+    var developerKey = 'AIzaSyDV97LeMmjAMyVQAOUqZH5bU4GFk3-Qwn4';
+    var clientId = '284489188582-c221gv8ubafv46c0bokohu3cri4589tv.apps.googleusercontent.com';
     var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"];
     var pickerApiLoaded = false;
     var oauthToken;

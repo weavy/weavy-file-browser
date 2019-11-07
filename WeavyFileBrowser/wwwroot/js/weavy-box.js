@@ -3,7 +3,7 @@
 weavyFilebrowser.box = (function () {
 
     var options = {
-        clientId: '17yshx1l7eg0qxzcbaolwuz42j16i2ik',
+        clientId: '7d8r9id64e17x70f094qjkfem58rlanc',
         linkType: 'shared'
     };
     var boxSelect = new BoxSelect(options);
