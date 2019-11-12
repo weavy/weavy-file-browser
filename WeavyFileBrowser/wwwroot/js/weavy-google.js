@@ -156,7 +156,7 @@ weavyFilebrowser.google = (function () {
     function updateSigninStatus(isSignedIn) {
         if (isSignedIn) {
             authorizeButton.style.display = 'none';
-            signoutButton.style.display = 'block';
+            signoutButton.style.display = 'inline-block';
             authorized = true;
 
             if (action != null) {
@@ -175,7 +175,7 @@ weavyFilebrowser.google = (function () {
 
             }
         } else {
-            authorizeButton.style.display = 'block';
+            authorizeButton.style.display = 'inline-block';
             signoutButton.style.display = 'none';
 
             authorized = false;

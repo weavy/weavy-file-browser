@@ -3,14 +3,36 @@
 @{
     ViewData["Title"] = "Home page";
 }
-<div class="cloud-buttons">
-    <button class="dropbox btn btn-primary">Dropbox</button>
-    <button class="box btn btn-primary">Box</button>
-    <button class="onedrive btn btn-primary">OneDrive</button>
-    <button class="google-drive btn btn-primary">Google Drive</button>
-    <button class="create-auth">Auth Google Docs</button>
-    <button class="create">Create Google Docs</button>
-    <button id="signout-button" style="display: none;">Sign Out</button>
+
+<div class="container text-center my-3">
+
+    <h1>Weavy File Browser</h1>
+    <p>
+        For more information about the Weavy File Browser and how to configure, customize and host in your own environment, please checkout the docs.
+    </p>
+    <p>
+        <a href="https://docs.weavy.com/playground/weavyfilebrowser">Weavy Docs - Weavy File Browser</a>
+    </p>
+    <div class="row">
+        <div class="col-lg-12">
+            <button class="dropbox btn btn-primary">Dropbox</button>
+            <button class="box btn btn-primary">Box</button>
+            <button class="onedrive btn btn-primary">OneDrive</button>
+            <button class="google-drive btn btn-primary">Google Drive</button>
+        </div>
+    </div>
+
+    <div class="row my-2">
+        <div class="col-lg-12">
+            <button class="create-auth btn btn-info">Auth Google Docs</button>
+            <button class="create btn btn-info">Create Google Docs</button>
+            <button id="signout-button" style="display: none;">Sign Out</button>
+        </div>
+    </div>
+
+    <p class="my-5">
+        <a href="https://weavy.com">Weavy</a> | <a href="https://weavy.com/privacy-policy"> Privacy Policy</a>
+    </p>
 </div>
 
 
