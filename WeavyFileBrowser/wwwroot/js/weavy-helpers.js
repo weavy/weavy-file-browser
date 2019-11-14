@@ -10,6 +10,10 @@ weavyFilebrowser.helpers = (function () {
 
     }
 
+    if (window.self !== window.top) {
+        $(".button-container").css("display", "none");
+    }
+
     return {
         add: addLinks,
         close: close
