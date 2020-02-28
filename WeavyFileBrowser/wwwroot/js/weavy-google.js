@@ -15,6 +15,7 @@ weavyFilebrowser.google = (function () {
     var action = null;
     var docTitle = "";
     var docType = "";
+    var docGuid = "";
     var origin = "";
 
     // Authorization scopes required by the API; multiple scopes can be included, separated by spaces.
@@ -49,6 +50,7 @@ weavyFilebrowser.google = (function () {
         } else {
             docTitle = title;
             docType = type;
+            docGuid = guid;
             action = "create";
 
             gapi.auth2.getAuthInstance().signIn();
@@ -163,7 +165,7 @@ weavyFilebrowser.google = (function () {
             if (action != null) {
                 switch (action) {
                     case "create":
-                        handleCreateDocument(docTitle, docType);
+                        handleCreateDocument(docTitle, docType, docGuid);
                         break;
                     case "pick":
                         handlePickerClick();
