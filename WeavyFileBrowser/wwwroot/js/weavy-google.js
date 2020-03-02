@@ -41,6 +41,8 @@ weavyFilebrowser.google = (function () {
             authorizeButton.onclick = handleAuthClick;
             pickerButton.onclick = handlePickerClick;
             signoutButton.onclick = handleSignoutClick;
+
+            weavyFilebrowser.helpers.googleInitComplete();
         });
     }
 
@@ -112,15 +114,6 @@ weavyFilebrowser.google = (function () {
             };
 
         }
-
-        //var request = gapi.client.drive.files.get({
-        //    'fileId': fileID,
-        //    'fields': '*'
-        //});
-        //request.execute(function (resp) {
-        //    //console.log(resp);
-        //});
-
 
         var request1 = gapi.client.request({
             'path': '/drive/v3/files/' + fileID + '/permissions',

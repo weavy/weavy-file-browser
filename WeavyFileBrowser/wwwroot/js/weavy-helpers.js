@@ -10,12 +10,17 @@ weavyFilebrowser.helpers = (function () {
 
     }
 
+    var googleInitComplete = function () {
+        window.parent.postMessage({ name: "google-init-complete" }, "*");
+    }
+
     if (window.self !== window.top) {
         $(".button-container").css("display", "none");
     }
 
     return {
         add: addLinks,
-        close: close
+        close: close,
+        googleInitComplete: googleInitComplete
     }
 })();
