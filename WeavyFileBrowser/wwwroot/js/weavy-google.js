@@ -42,7 +42,7 @@ weavyFilebrowser.google = (function () {
             pickerButton.onclick = handlePickerClick;
             signoutButton.onclick = handleSignoutClick;
 
-            weavyFilebrowser.helpers.googleInitComplete();
+            weavyFilebrowser.helpers.post("google-init-complete");
         });
     }
 
@@ -55,8 +55,10 @@ weavyFilebrowser.google = (function () {
             docGuid = guid;
             action = "create";
 
-            gapi.auth2.getAuthInstance().signIn();
-
+            
+            gapi.auth2.getAuthInstance().signIn().catch(function (e) {
+                weavyFilebrowser.helpers.post("google-cancelled");
+            });            
         }
 
     }

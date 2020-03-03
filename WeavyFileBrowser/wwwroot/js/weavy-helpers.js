@@ -10,8 +10,8 @@ weavyFilebrowser.helpers = (function () {
 
     }
 
-    var googleInitComplete = function () {
-        window.parent.postMessage({ name: "google-init-complete" }, "*");
+    var postMessage = function (name) {
+        window.parent.postMessage({ name: name }, "*");
     }
 
     if (window.self !== window.top) {
@@ -21,6 +21,6 @@ weavyFilebrowser.helpers = (function () {
     return {
         add: addLinks,
         close: close,
-        googleInitComplete: googleInitComplete
+        post: postMessage
     }
 })();
