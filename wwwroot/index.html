@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+        content="width=device-width, minimum-scale=1.0, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+    <title>Weavy Cloud Filepicker</title>
+    
+    <!-- build:css css/bundle.css -->
+    <link rel="stylesheet" href="/css/site.css" />
+    <!-- endbuild -->
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+</head>
+
+<body>
+    <div>
+        <div class="container text-center my-3 button-container">
+            <h1>Weavy File Browser</h1>
+            <p>
+                For more information about the Weavy File Browser and how to configure, customize and host in your own
+                environment, please checkout the docs.
+            </p>
+            <p>
+                <a href="https://docs.weavy.com/tutorials/weavyfilebrowser">Weavy Docs - Weavy File Browser</a>
+            </p>
+            <div class="row">
+                <div class="col-lg-12">
+                    <button class="dropbox btn btn-primary">Dropbox</button>
+                    <button class="box btn btn-primary">Box</button>
+                    <button class="onedrive btn btn-primary">OneDrive</button>
+                    <button class="google-drive btn btn-primary">Google Drive</button>
+                </div>
+            </div>
+
+            <div class="row my-2">
+                <div class="col-lg-12">
+                    <button class="create-auth btn btn-info">Auth Google Docs</button>
+                    <button class="create btn btn-info">Create Google Docs</button>
+                    <button id="signout-button" class="btn btn-default" style="display: none;">Sign Out</button>
+                </div>
+            </div>
+
+            <p class="my-5">
+                <a href="https://www.weavy.com">Weavy</a> | <a href="https://www.weavy.com/privacy-policy"> Privacy Policy</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="/js/vendor/jquery/jquery.min.js"></script>
+    <script src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs"
+        data-app-key="n3lzi8ia37kv4pw"></script>
+    <script src="https://cdn01.boxcdn.net/js/static/select.js"></script>
+    <script src="https://js.live.net/v7.2/OneDrive.js"></script>    
+
+    <!-- build:js js/bundle.js -->    
+    <script src="/js/weavy-helpers.js"></script>
+    <script src="/js/weavy-filebrowser.js"></script>
+    <script src="/js/weavy-google.js"></script>
+    <script src="/js/weavy-dropbox.js"></script>
+    <script src="/js/weavy-box.js"></script>
+    <script src="/js/weavy-onedrive.js"></script>
+    <!-- endbuild -->
+
+    <script>
+        console.log("origin: " + weavyFilebrowser.helpers.origin);
+        console.log("version: " + weavyFilebrowser.helpers.version);        
+        console.log(window.location.protocol + '//' + window.location.host);
+    </script>
+
+    <script async defer type="text/javascript" src="https://apis.google.com/js/api.js?"
+        onload="this.onload = function () { }; weavyFilebrowser.google.onLoad(weavyFilebrowser.helpers.origin);"
+        onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
+
+</body>
+</html>
