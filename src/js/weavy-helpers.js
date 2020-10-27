@@ -7,9 +7,9 @@ weavyFilebrowser.helpers = (function () {
     var insert = function (blobs, provider, open) {
         if (weavyFilebrowser.helpers.version === LEGACY) {
             var legacyFormat = [];
-            
+
             for (var i = 0; i < blobs.length; i++) {
-                legacyFormat.push({url: blobs[i].link, title: blobs[i].name, guid: weavyFilebrowser.filebrowser.contentType()});
+                legacyFormat.push({ url: blobs[i].link, title: blobs[i].name, guid: weavyFilebrowser.filebrowser.contentType() });
             }
             window.parent.postMessage({ name: "insert", links: legacyFormat, provider: provider, open: open || false }, "*");
         } else {
@@ -25,22 +25,31 @@ weavyFilebrowser.helpers = (function () {
         window.parent.postMessage({ name: name }, "*");
     }
 
-    if (window.self !== window.top) {
+    if (inIframe()) {
+        $("html").addClass("framed");
         $(".button-container").css("display", "none");
     }
 
-    var getParameter = function(name) {
+    var getParameter = function (name) {
         return getParameterByName(name);
     }
 
     function getParameterByName(name) {
         var url = window.location.href;
         name = name.replace(/[\[\]]/g, '\\$&');
-        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'), 
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
             results = regex.exec(url);
         if (!results) return null;
         if (!results[2]) return '';
         return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+
+    function inIframe () {
+        try {
+            return window.self !== window.top;
+        } catch (e) {
+            return true;
+        }
     }
 
     return {
@@ -48,9 +57,9 @@ weavyFilebrowser.helpers = (function () {
         close: close,
         post: postMessage,
         getParameter: getParameter,
-        
+
         // parameters
         origin: getParameterByName("origin"),
-        version: getParameterByName("v") || LEGACY,    
+        version: getParameterByName("v") || LEGACY,
     }
 })();

@@ -3,6 +3,7 @@
 weavyFilebrowser.filebrowser = (function () {
 
     var guid = null;
+    
     // NOTE: legacy pickers allow multiselect
     var multiple = true;
 
@@ -18,12 +19,15 @@ weavyFilebrowser.filebrowser = (function () {
     //--------------------------------------------------------------
     window.addEventListener("message", function (e) {
         if (e.data.name === "open") {
-            // trigger click on specified provider button to open up picker
+            // trigger click on specified provider button to open picker
             guid = e.data.guid || "";
-            multiple = e.data.multiple;            
+            if (typeof(e.data.multiple) != "undefined" && e.data.multiple != null) {
+                multiple = e.data.multiple;
+            }
             $("button." + e.data.provider).trigger("click");
         } else if (e.data.name === "create") {
             // trigger click on Google Drive Create button
+            guid = e.data.guid || "";
             weavyFilebrowser.google.create(e.data.title, e.data.type, e.data.guid);
         }
     });

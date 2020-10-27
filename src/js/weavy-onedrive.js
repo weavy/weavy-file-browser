@@ -3,20 +3,19 @@
 weavyFilebrowser.onedrive = (function () {
     $(function () {
         $("button.onedrive").on("click", function () {
-console.log("click");
-
             var options = {
                 clientId: "45ae3579-45ca-42ee-94b0-14a5518865a6",
                 action: 'share',
-                multiSelect: weavyFilebrowser.filebrowser.multiple,
+                multiSelect: weavyFilebrowser.filebrowser.multiple(),
                 success: function (files) {
                     var blobs = [];
                     for (var i = 0; i < files.value.length; i++) {
                         var f = {
-                            provider: "onedrive",
+                            provider: "OneDrive",
                             link: files.value[i].webUrl,
                             name: files.value[i].name,
                             size: files.value[i].size,
+                            raw: files.value[i]
                         }
 
                         if (files.value[i].file) {
