@@ -2,7 +2,7 @@
 
 weavyFilebrowser.onedrive = (function () {
     $(function () {
-        $("button.onedrive").on("click", function () {
+        $("button.onedrive,a.onedrive").on("click", function () {
             var options = {
                 clientId: "45ae3579-45ca-42ee-94b0-14a5518865a6",
                 action: 'share',

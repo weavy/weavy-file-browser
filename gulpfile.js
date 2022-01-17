@@ -18,11 +18,22 @@ function clean() {
 
 function vendor() {
     return gulp.src(filesExist("node_modules/jquery/dist/jquery.min.js"))
-        .pipe(gulp.dest("dist/js/vendor/jquery"));
+         .pipe(gulp.dest("dist/js/vendor/jquery"));    
+}
+
+function vendorV10(){
+    return gulp.src(["node_modules/jquery/dist/jquery.min.js", "node_modules/@weavy/weavy-ui/dist/common.js"])
+        .pipe(gulp.dest("dist/js/vendor10"));
 }
 
 function bundle() {
     return gulp.src("src/index.html")
+        .pipe(useref())
+        .pipe(gulp.dest("dist"));
+}
+
+function bundleV10() {
+    return gulp.src("src/index10.html")
         .pipe(useref())
         .pipe(gulp.dest("dist"));
 }
@@ -78,10 +89,10 @@ function shutdown(cb) {
 }
 
 function watch() {
-    return gulp.watch("src/**/*.*", gulp.series(clean, bundle, minify, vendor, cachebust));
+    return gulp.watch("src/**/*.*", gulp.series(clean, bundle, bundleV10, minify, vendor, vendorV10, cachebust));
 }
 
-exports.default = gulp.series(clean, bundle, minify, vendor, cachebust, watch);
+exports.default = gulp.series(clean, bundle, bundleV10, minify, vendor, vendorV10, cachebust, watch);
 exports.serve = serve;
 exports.shutdown = shutdown;
 exports.clean = clean;

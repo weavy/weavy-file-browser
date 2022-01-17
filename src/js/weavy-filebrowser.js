@@ -15,6 +15,10 @@ weavyFilebrowser.filebrowser = (function () {
         return multiple;
     }
 
+    $(".filebrowser-close").on("click", function() {
+        weavyFilebrowser.helpers.post("file-browser-close");
+    })
+
     // Listen to incomming messages
     //--------------------------------------------------------------
     window.addEventListener("message", function (e) {

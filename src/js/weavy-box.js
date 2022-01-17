@@ -2,7 +2,7 @@
 
 weavyFilebrowser.box = (function () {
 
-    $("button.box").on("click", function () {
+    $("button.box,a.box").on("click", function () {
         var options = {
             clientId: "7d8r9id64e17x70f094qjkfem58rlanc",
             linkType: "shared",

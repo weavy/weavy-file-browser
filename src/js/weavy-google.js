@@ -23,7 +23,7 @@ weavyFilebrowser.google = (function () {
 
     // buttons
     var authorizeButton = $("button.create-auth")[0];
-    var pickerButton = $("button.google-drive")[0];
+    var pickerButton = $("button.google-drive,a.google-drive")[0];
     var signoutButton = document.getElementById("signout-button");
 
     var initClient = function (origin) {
@@ -128,6 +128,7 @@ weavyFilebrowser.google = (function () {
         if (authorized) {
             oauthToken = gapi.auth2.getAuthInstance().currentUser.get().getAuthResponse().access_token;
             createPicker();
+            weavyFilebrowser.helpers.post("google-selected");
         } else {
             action = "pick";
             gapi.auth2.getAuthInstance().signIn();

@@ -11,18 +11,18 @@ weavyFilebrowser.helpers = (function () {
             for (var i = 0; i < blobs.length; i++) {
                 legacyFormat.push({ url: blobs[i].link, title: blobs[i].name, guid: weavyFilebrowser.filebrowser.contentType() });
             }
-            window.parent.postMessage({ name: "insert", links: legacyFormat, provider: provider, open: open || false }, "*");
+            window.parent.postMessage({ name: "insert", weavyId: weavyFilebrowser.helpers.weavyId, links: legacyFormat, provider: provider, open: open || false }, "*");
         } else {
-            window.parent.postMessage({ name: "addExternalBlobs", blobs: blobs, open: open || false }, "*");
+            window.parent.postMessage({ name: "addExternalBlobs", weavyId: weavyFilebrowser.helpers.weavyId, blobs: blobs, open: open || false }, "*");
         }
     }
 
     var close = function () {
-        window.parent.postMessage({ name: "closePicker" }, "*");
+        window.parent.postMessage({ name: "closePicker", weavyId: weavyFilebrowser.helpers.weavyId}, "*");
     }
 
-    var postMessage = function (name) {
-        window.parent.postMessage({ name: name }, "*");
+    var postMessage = function (name) { 
+        window.parent.postMessage({ name: name, weavyId: weavyFilebrowser.helpers.weavyId }, "*");
     }
 
     if (inIframe()) {
@@ -60,6 +60,7 @@ weavyFilebrowser.helpers = (function () {
 
         // parameters
         origin: getParameterByName("origin"),
+        weavyId: getParameterByName("weavyId"),
         version: getParameterByName("v") || LEGACY,
     }
 })();

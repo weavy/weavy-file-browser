@@ -2,7 +2,7 @@
 
 weavyFilebrowser.dropbox = (function () {
     $(function () {
-        $("button.dropbox").on("click", function () {
+        $("button.dropbox,a.dropbox").on("click", function () {
             var options = {
                 multiselect: weavyFilebrowser.filebrowser.multiple(),
                 success: function (files) {

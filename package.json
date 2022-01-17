@@ -13,6 +13,7 @@
     "gulp-webserver": "^0.9.1"
   },
   "dependencies": {
-    "jquery": "^3.5.1"
+    "jquery": "^3.5.1",
+    "@weavy/weavy-ui": "github:weavy/weavy-ui#v10.0.0-alpha7"
   }
 }
