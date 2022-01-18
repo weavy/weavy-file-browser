@@ -1,3 +1,22 @@
 .framed body {
     background: transparent;
 }
+
+.weavy-container ul.list-group{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.weavy-container ul.list-group li{
+    border: 1px solid #ccc !important; 
+    flex: 1 1 calc(50% - 10px);
+    padding: 1rem !important;     
+}
+
+.weavy-container ul.list-group li a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+}
