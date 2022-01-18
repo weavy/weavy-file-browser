@@ -24,12 +24,13 @@ weavyFilebrowser.helpers = (function () {
     var postMessage = function (name) { 
         window.parent.postMessage({ name: name, weavyId: weavyFilebrowser.helpers.weavyId }, "*");
     }
-
-    if (inIframe()) {
+    
+    if (inIframe()) {    
         $("html").addClass("framed");
+        $(".weavy-container").removeClass("d-none");
         $(".button-container").css("display", "none");
-    }
-
+    } 
+    
     var getParameter = function (name) {
         return getParameterByName(name);
     }
