@@ -4,16 +4,16 @@
   "description": "",
   "private": true,
   "devDependencies": {
-    "del": "^5.1.0",
+    "del": "^7.0.0",
     "files-exist": "^1.1.0",
     "gulp": "^4.0.2",
+    "gulp-cli": "^2.3.0",
     "gulp-hash-src": "^0.1.6",
     "gulp-uglify": "^3.0.2",
-    "gulp-useref": "^4.0.1",
+    "gulp-useref": "^5.0.0",
     "gulp-webserver": "^0.9.1"
   },
   "dependencies": {
-    "jquery": "^3.5.1",
-    "@weavy/weavy-ui": "github:weavy/weavy-ui#v10.0.0-alpha7"
+    "jquery": "^3.6.1"
   }
 }

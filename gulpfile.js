@@ -1,5 +1,4 @@
 const gulp = require("gulp");
-const del = require("del");
 const useref = require("gulp-useref");
 const webserver = require("gulp-webserver");
 const https = require("https");
@@ -13,7 +12,9 @@ var port = 8081;
 var isHttps = true;
 
 function clean() {
-    return del(['dist']);
+    return import("del").then((del) => {
+        return del.deleteAsync(['dist']);
+    });
 }
 
 function vendor() {
@@ -22,7 +23,7 @@ function vendor() {
 }
 
 function vendorV10(){
-    return gulp.src(["node_modules/jquery/dist/jquery.min.js", "node_modules/@weavy/weavy-ui/dist/common.js"])
+    return gulp.src(["node_modules/jquery/dist/jquery.min.js", "src/js/weavy-ui/common.js"])
         .pipe(gulp.dest("dist/js/vendor10"));
 }
 
