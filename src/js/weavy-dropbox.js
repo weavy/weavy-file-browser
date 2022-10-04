@@ -1,8 +1,8 @@
 ﻿var weavyFilebrowser = weavyFilebrowser || {};
 
 weavyFilebrowser.dropbox = (function () {
-    $(function () {
-        $("button.dropbox,a.dropbox").on("click", function () {
+    weavyFilebrowser.helpers.ready(function () {
+        document.addEventListener("click", weavyFilebrowser.helpers.delegate("button.dropbox, a.dropbox", function() { 
             var options = {
                 multiselect: weavyFilebrowser.filebrowser.multiple(),
                 success: function (files) {
@@ -28,6 +28,6 @@ weavyFilebrowser.dropbox = (function () {
                 },
             };
             Dropbox.choose(options);
-        });
+        }));
     })
 })();

@@ -1,8 +1,8 @@
 ﻿var weavyFilebrowser = weavyFilebrowser || {};
 
 weavyFilebrowser.onedrive = (function () {
-    $(function () {
-        $("button.onedrive,a.onedrive").on("click", function () {
+    weavyFilebrowser.helpers.ready(function () {
+        document.addEventListener("click", weavyFilebrowser.helpers.delegate("button.onedrive, a.onedrive", function() { 
             var options = {
                 clientId: "45ae3579-45ca-42ee-94b0-14a5518865a6",
                 action: 'share',
@@ -36,6 +36,6 @@ weavyFilebrowser.onedrive = (function () {
                 },
             };
             OneDrive.open(options);
-        });
+        }));
     })
 })();

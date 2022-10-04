@@ -15,9 +15,9 @@ weavyFilebrowser.filebrowser = (function () {
         return multiple;
     }
 
-    $(".filebrowser-close").on("click", function() {
+    document.addEventListener("click", weavyFilebrowser.helpers.delegate(".filebrowser-close", function() { 
         weavyFilebrowser.helpers.post("file-browser-close");
-    })
+    }));
 
     // Listen to incomming messages
     //--------------------------------------------------------------
@@ -28,7 +28,8 @@ weavyFilebrowser.filebrowser = (function () {
             if (typeof(e.data.multiple) != "undefined" && e.data.multiple != null) {
                 multiple = e.data.multiple;
             }
-            $("button." + e.data.provider).trigger("click");
+            
+            document.querySelector("button." + e.data.provider).click();
         } else if (e.data.name === "create") {
             // trigger click on Google Drive Create button
             guid = e.data.guid || "";

@@ -2,7 +2,7 @@
 
 weavyFilebrowser.box = (function () {
 
-    $("button.box,a.box").on("click", function () {
+    document.addEventListener("click", weavyFilebrowser.helpers.delegate("button.box, a.box", function() { 
         var options = {
             clientId: "7d8r9id64e17x70f094qjkfem58rlanc",
             linkType: "shared",
@@ -33,5 +33,5 @@ weavyFilebrowser.box = (function () {
         });
 
         boxSelect.launchPopup();
-    });
+    }));
 })();

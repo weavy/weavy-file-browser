@@ -22,8 +22,8 @@ weavyFilebrowser.google = (function () {
     var SCOPES = "https://www.googleapis.com/auth/drive";
 
     // buttons
-    var authorizeButton = $("button.create-auth")[0];
-    var pickerButton = $("button.google-drive,a.google-drive")[0];
+    var authorizeButton = document.querySelector("button.create-auth");
+    var pickerButton = document.querySelector("button.google-drive,a.google-drive");
     var signoutButton = document.getElementById("signout-button");
 
     var initClient = function (origin) {
